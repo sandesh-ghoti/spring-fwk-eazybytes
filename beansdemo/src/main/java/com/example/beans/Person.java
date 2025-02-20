@@ -6,7 +6,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Person {
   private String name;
-  private Vehicle vehicle;
+  private final Vehicle vehicle; // we can achieve final bean creation using contructor beans injection
+
+  @Autowired
+  public Person(Vehicle vehicle) {
+    this.vehicle = vehicle;
+  }
 
   public String getName() {
     return name;
@@ -18,11 +23,6 @@ public class Person {
 
   public Vehicle getVehicle() {
     return vehicle;
-  }
-
-  @Autowired
-  public void setVehicle(Vehicle vehicle) {
-    this.vehicle = vehicle;
   }
 
 }
