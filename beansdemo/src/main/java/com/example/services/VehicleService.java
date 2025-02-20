@@ -1,7 +1,11 @@
-package com.example.beans;
+package com.example.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+
+import com.example.interfaces.Speaker;
+import com.example.interfaces.Tyre;
 
 @Component
 public class VehicleService {
@@ -9,7 +13,7 @@ public class VehicleService {
   private Tyre tyre;
 
   @Autowired
-  public VehicleService(Speaker speaker, Tyre tyre) {
+  public VehicleService(Speaker speaker, @Qualifier("bridgestoneTyre") Tyre tyre) {
     this.speaker = speaker;
     this.tyre = tyre;
   }

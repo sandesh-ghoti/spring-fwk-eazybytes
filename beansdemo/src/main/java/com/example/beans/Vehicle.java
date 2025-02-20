@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Component;
 
+import com.example.services.VehicleService;
+
 @Component
 public class Vehicle {
   private String name = "Honda";
