@@ -1,11 +1,19 @@
 package com.example.beans;
 
-// import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 
-// @Component
+import org.springframework.stereotype.Component;
+
+@Component
 public class Vehicle {
-  private String name;
+  private String name = "Honda";
   private int make;
+  private final VehicleService vehicleService;
+
+  @Autowired
+  public Vehicle(VehicleService vehicleService) {
+    this.vehicleService = vehicleService;
+  }
 
   public String getName() {
     return name;
@@ -21,5 +29,9 @@ public class Vehicle {
 
   public void setMake(int make) {
     this.make = make;
+  }
+
+  public VehicleService getVehicleService() {
+    return vehicleService;
   }
 }
