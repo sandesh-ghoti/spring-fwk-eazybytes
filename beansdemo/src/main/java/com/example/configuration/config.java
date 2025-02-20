@@ -10,7 +10,6 @@ import com.example.beans.Vehicle;
 @ComponentScan("com.example.beans")
 @Configuration
 public class config {
-  @Primary
   @Bean
   public Vehicle vehicle1() {
     Vehicle vehicle = new Vehicle();
