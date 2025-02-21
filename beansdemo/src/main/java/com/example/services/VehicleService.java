@@ -18,11 +18,11 @@ public class VehicleService {
     this.tyre = tyre;
   }
 
-  public void music() {
+  public void music(boolean isVehicleStarted) {
     speaker.playMusic();
   }
 
-  public void roll() {
+  public void roll(boolean isVehicleStarted) {
     tyre.rollTyre();
   }
 }

@@ -11,8 +11,9 @@ public class Main {
         var context = new AnnotationConfigApplicationContext(config.class);
         Person person = context.getBean(Person.class);
         VehicleService vehicleService = person.getVehicle().getVehicleService();
-        vehicleService.music();
-        vehicleService.roll();
+        boolean isVehicleStarted = true;
+        vehicleService.music(isVehicleStarted);
+        vehicleService.roll(isVehicleStarted);
         context.close();
     }
 }
