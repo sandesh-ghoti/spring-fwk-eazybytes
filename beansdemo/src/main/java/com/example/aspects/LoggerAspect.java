@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -33,5 +34,10 @@ public class LoggerAspect {
   @AfterThrowing(value = "execution(* com.example.services.*.*(..))", throwing = "ex")
   public void handleThrowing(JoinPoint joinPoint, Exception ex) {
     logger.log(Level.SEVERE, joinPoint.getSignature().toString() + " oops got the error " + ex.getMessage());
+  }
+
+  @AfterReturning(value = "execution(String com.example.services.*.*(..))", returning = "returnVal")
+  public void handleReturning(JoinPoint joinPoint, String returnVal) {
+    logger.info(joinPoint.getSignature().toString() + " got the following return value " + returnVal);
   }
 }

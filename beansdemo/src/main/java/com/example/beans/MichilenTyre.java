@@ -7,7 +7,7 @@ import com.example.interfaces.Tyre;
 @Component(value = "michelinTyre")
 public class MichilenTyre implements Tyre {
 
-  public void rollTyre() {
-    System.out.println("rolling tyre of Michilen");
+  public String rollTyre() {
+    return "rolling tyre of Michilen";
   }
 }

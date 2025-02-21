@@ -8,7 +8,7 @@ import com.example.interfaces.Speaker;
 @Primary
 @Component(value = "sonySpeaker")
 public class SonySpeaker implements Speaker {
-  public void playMusic() {
-    System.out.println("playing music in " + "Sony");
+  public String playMusic() {
+    return "playing music in " + "Sony";
   }
 }

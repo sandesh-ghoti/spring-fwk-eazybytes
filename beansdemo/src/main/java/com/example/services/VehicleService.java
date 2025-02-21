@@ -18,12 +18,11 @@ public class VehicleService {
     this.tyre = tyre;
   }
 
-  public void music(boolean isVehicleStarted) {
-    throw new RuntimeException("raising error in vehicle service music");
-    // speaker.playMusic();
+  public String music(boolean isVehicleStarted) {
+    return speaker.playMusic();
   }
 
-  public void roll(boolean isVehicleStarted) {
-    tyre.rollTyre();
+  public String roll(boolean isVehicleStarted) {
+    return tyre.rollTyre();
   }
 }
