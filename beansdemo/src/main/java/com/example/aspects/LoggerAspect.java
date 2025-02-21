@@ -2,9 +2,12 @@ package com.example.aspects;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.core.annotation.Order;
@@ -25,5 +28,10 @@ public class LoggerAspect {
     Instant finish = Instant.now();
     long timeElapsed = Duration.between(start, finish).toMillis();
     logger.info(joinPoint.getSignature().toString() + "Time took to execute the method : " + timeElapsed);
+  }
+
+  @AfterThrowing(value = "execution(* com.example.services.*.*(..))", throwing = "ex")
+  public void handleThrowing(JoinPoint joinPoint, Exception ex) {
+    logger.log(Level.SEVERE, joinPoint.getSignature().toString() + " oops got the error " + ex.getMessage());
   }
 }

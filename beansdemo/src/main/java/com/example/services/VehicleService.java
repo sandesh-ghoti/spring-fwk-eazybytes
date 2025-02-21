@@ -19,7 +19,8 @@ public class VehicleService {
   }
 
   public void music(boolean isVehicleStarted) {
-    speaker.playMusic();
+    throw new RuntimeException("raising error in vehicle service music");
+    // speaker.playMusic();
   }
 
   public void roll(boolean isVehicleStarted) {
