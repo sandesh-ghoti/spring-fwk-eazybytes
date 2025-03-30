@@ -1,5 +1,6 @@
 package com.example.configuration;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -8,5 +9,13 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @Configuration
 @EnableAspectJAutoProxy
 public class config {
+  @Bean
+  public static CustomBeanPostProcessor customBeanPostProcessor() {
+    return new CustomBeanPostProcessor();
+  }
 
+  @Bean
+  public static CustomBeanFactoryPostProcessor customBeanFactoryPostProcessor() {
+    return new CustomBeanFactoryPostProcessor();
+  }
 }

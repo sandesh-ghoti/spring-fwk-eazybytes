@@ -1,10 +1,12 @@
 package com.example.beans;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Component;
 
 import com.example.services.VehicleService;
+
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 
 @Component
 public class Vehicle {
@@ -35,5 +37,15 @@ public class Vehicle {
 
   public VehicleService getVehicleService() {
     return vehicleService;
+  }
+
+  @PostConstruct
+  public void init() {
+    System.out.println(getClass().getName() + "init method called");
+  }
+
+  @PreDestroy
+  public void destroy() {
+    System.out.println(getClass().getName() + "destroy method called");
   }
 }
